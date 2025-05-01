@@ -14,7 +14,7 @@ init(autoreset=True)
 
 class ChiaSistan:
     def __init__(self):
-        self.versiyon = "1.0.0"
+        self.versiyon = "1.0.1"
         self.github_repo = "https://raw.githubusercontent.com/ensorchia/chiasistan/main/version.json"
         self.kategoriler = {
             "1": "Tarayıcılar",
@@ -41,9 +41,9 @@ class ChiaSistan:
                 "2": {"isim": "Visual Studio 2022", "url": "https://aka.ms/vs/17/release/vs_community.exe"}
             },
             "4": {
-                "1": {"isim": "Microsoft Edge Kaldirici", "fonksiyon": self.edge_kaldir},
-                "2": {"isim": "Bilgisayari Hizlandir", "fonksiyon": self.pc_optimize},
-                "3": {"isim": "Driver Guncelle", "fonksiyon": self.driver_guncelle}
+                "1": {"isim": "Microsoft Edge Kaldırıcı", "fonksiyon": self.edge_kaldir},
+                "2": {"isim": "Bilgisayari Hızlandır", "fonksiyon": self.pc_optimize},
+                "3": {"isim": "Driver Güncelle", "fonksiyon": self.driver_guncelle}
             }
         }
 
@@ -156,27 +156,10 @@ class ChiaSistan:
             print(Fore.RED + f"Güncelleme kontrolü sırasında hata: {str(e)}" + Style.RESET_ALL)
 
     def uygulamayi_guncelle(self):
-        try:
-          
-            guncelleme_url = "https://raw.githubusercontent.com/ensorchia/chiasistan/main/chiasistan.py"
-            response = requests.get(guncelleme_url)
-            
-            if response.status_code == 200:
-                mevcut_dosya = os.path.abspath(__file__)
-                yedek_dosya = mevcut_dosya + ".bak"
-                shutil.copy2(mevcut_dosya, yedek_dosya)
-
-                with open(mevcut_dosya, 'wb') as f:
-                    f.write(response.content)
-                
-                print(Fore.GREEN + "Uygulama başarıyla güncellendi!" + Style.RESET_ALL)
-                print(Fore.YELLOW + "Uygulama yeniden başlatılıyor..." + Style.RESET_ALL)
-                time.sleep(2)
-                os.execv(sys.executable, ['python'] + sys.argv)
-            else:
-                print(Fore.RED + "Güncelleme indirilemedi!" + Style.RESET_ALL)
-        except Exception as e:
-            print(Fore.RED + f"Güncelleme sırasında hata: {str(e)}" + Style.RESET_ALL)
+        print("Güncelleme başlatılıyor...")
+        updater_path = os.path.join(os.path.dirname(sys.executable), "updater.exe")
+        os.startfile(updater_path)
+        sys.exit(0)
 
     def menu_goster(self):
         self.guncelleme_kontrol()
