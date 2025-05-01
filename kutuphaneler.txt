@@ -1,0 +1,5 @@
+colorama==0.4.6
+requests==2.31.0
+pywin32==310
+psutil==5.9.5
+tqdm==4.66.1 
