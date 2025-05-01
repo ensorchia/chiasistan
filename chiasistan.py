@@ -14,7 +14,7 @@ init(autoreset=True)
 
 class ChiaSistan:
     def __init__(self):
-        self.versiyon = "1.0.0"
+        self.versiyon = "1.0.1"
         self.github_repo = "https://raw.githubusercontent.com/ensorchia/chiasistan/main/version.json"
         self.kategoriler = {
             "1": "Tarayıcılar",
@@ -25,7 +25,7 @@ class ChiaSistan:
         
         self.uygulamalar = {
             "1": {
-                "1": {"isim": "Google Chrome Deneme", "url": "https://dl.google.com/chrome/install/latest/chrome_installer.exe"},
+                "1": {"isim": "Google Chrome a", "url": "https://dl.google.com/chrome/install/latest/chrome_installer.exe"},
                 "2": {"isim": "Brave", "url": "https://laptop-updates.brave.com/latest/winx64"},
                 "3": {"isim": "Opera GX", "url": "https://download.opera.com/download/get/?id=62612&location=415&nothanks=yes&sub=marine"},
                 "4": {"isim": "Firefox", "url": "https://download.mozilla.org/?product=firefox-latest&os=win64&lang=tr"}
