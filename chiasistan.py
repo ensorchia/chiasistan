@@ -14,7 +14,7 @@ init(autoreset=True)
 
 class ChiaSistan:
     def __init__(self):
-        self.versiyon = "1.0.2"
+        self.versiyon = "1.0.0"
         self.github_repo = "https://raw.githubusercontent.com/ensorchia/chiasistan/main/version.json"
         self.kategoriler = {
             "1": "Tarayıcılar",
