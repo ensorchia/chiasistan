@@ -9,18 +9,31 @@ from colorama import init, Fore, Style
 from tqdm import tqdm
 import winreg
 import psutil
+import ctypes
+
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except:
+        return False
+
+if not is_admin():
+    print(Fore.RED + "Bu uygulama yönetici izni gerektiriyor!" + Style.RESET_ALL)
+    print(Fore.YELLOW + "Lütfen uygulamayı yönetici olarak çalıştırın." + Style.RESET_ALL)
+    input("Devam etmek için bir tuşa basın...")
+    sys.exit(1)
 
 init(autoreset=True)
 
 class ChiaSistan:
     def __init__(self):
-        self.versiyon = "1.0.1"
+        self.versiyon = "1.0.2"
         self.github_repo = "https://raw.githubusercontent.com/ensorchia/chiasistan/main/version.json"
         self.kategoriler = {
             "1": "Tarayıcılar",
-            "2": "Oyun Baslatıcilar",
-            "3": "Yazilim Araclari",
-            "4": "Sistem Araclari"
+            "2": "Oyun Başlatıcılar",
+            "3": "Yazılım Araçları",
+            "4": "Sistem Araçları"
         }
         
         self.uygulamalar = {
